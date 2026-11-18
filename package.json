@@ -1,8 +1,9 @@
-{
+{ 
+  "disk:linux": "vite build && electron-builder --linux tar.gz",
   "name": "khan_stopwatch",
   "productName": "khan_Stopwatch",
   "description": "Premium circular stopwatch and countdown timer",
-  "author": "Khan Sahib",
+  "author": {"name": "Khan Sahib" , "email": "mohammadosmankhankhan908@gmail.com"},
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -12,8 +13,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "app": "vite build && electron .",
-    "dist": "vite build && electron-builder --win"
+    "dist": "vite build && electron-builder --win",
+    "dist:linux": "vite build && electron-builder --linux tar.gz",
+    "dist:mac": "vite build && electron-builder --mac",
+    "dist:all": "vite build && electron-builder --win --linux tar.gz --mac"
   },
+
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -42,11 +47,9 @@
       "signAndEditExecutable": false
     },
     "linux": {
-      "target": [
-        "deb",
-        "rpm"
-      ],
-      "category": "Utility"
+      "target": ["tar.gz" ],
+      "category": "Utility",
+      "executableName": "khan-Stopwatch"
     },
     "mac": {
       "target": [
